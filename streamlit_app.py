@@ -1,4 +1,15 @@
 import streamlit as st
 
-st.title("Primera app")
-st.balloons()
+pg_intro = st.Page("intro.py", title="Introducción")
+
+# Paginas DA
+pg_eda_intro = st.Page("seccion_eda/intro_eda.py", title="Primeros pasos")
+pg_eda_basica = st.Page("seccion_eda/estadisticos_basicos.py", title="Informacion básica")
+
+navigation_env = st.navigation(
+    {
+        "Inicio": [pg_intro],
+        "EDA": [pg_eda_intro, pg_eda_basica]
+    }
+)
+navigation_env.run()
